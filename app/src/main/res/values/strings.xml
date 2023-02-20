@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DragDrop</string>
+    <string name="btn_newgame">New Game</string>
+    <string name="btn_exit">Exit</string>
+    <string name="levelSelect">Select Maze</string>
+    <string name="finished_title">Congrats</string>
+    <string name="finished_text">Level Cleared</string>
+    <string name="finished_button">End Game</string>
+    <string name="new_maze_button">New Maze!</string>
+    <string name="maze_solved">Well Done!</string>
+    <string name="action_level">Choose level</string>
+</resources>
