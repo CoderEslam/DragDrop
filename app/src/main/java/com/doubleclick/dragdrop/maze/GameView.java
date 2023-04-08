@@ -10,6 +10,8 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.doubleclick.dragdrop.Interface.move;
+
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Stack;
@@ -23,6 +25,8 @@ public class GameView extends View {
     private static final float WALL_THICKNESS = 4;
     private float cellSize, hMargin, vMargin;
     private Paint wallPaint, playerPaint, exitPaint;
+
+    private move move;
 
     private enum Direction {UP, DOWN, LEFT, RIGHT}
 
@@ -42,6 +46,10 @@ public class GameView extends View {
         exitPaint.setColor(Color.BLUE);
 
         createMaze();
+    }
+
+    public void setMove(move move) {
+        this.move = move;
     }
 
     private void createMaze() {
@@ -263,6 +271,8 @@ public class GameView extends View {
 
     private void checkExit() {
         if (player == exit) {
+            move.done();
+
             COLUMNS++;
             ROWS++;
             createMaze();

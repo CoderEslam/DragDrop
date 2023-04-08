@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".maze.MainActivity">
 
-    <view
-        android:id="@+id/view"
-        class="com.doubleclick.dragdrop.maze.MyGameView"
+    <com.doubleclick.dragdrop.maze.GameView
+        android:id="@+id/game_view"
+        class="com.doubleclick.dragdrop.maze.GameView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

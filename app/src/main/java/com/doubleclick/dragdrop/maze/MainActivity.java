@@ -2,58 +2,68 @@ package com.doubleclick.dragdrop.maze;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.doubleclick.dragdrop.Interface.move;
 import com.doubleclick.dragdrop.R;
 
 public class MainActivity extends AppCompatActivity {
 
     Button left, right, up, bottom;
-    MyGameView canvas;
+    GameView game_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        canvas = findViewById(R.id.view);
+        game_view = findViewById(R.id.game_view);
         left = findViewById(R.id.left);
         up = findViewById(R.id.up);
         bottom = findViewById(R.id.bottom);
         right = findViewById(R.id.right);
-
+        game_view.setMove(new move() {
+            @Override
+            public void done() {
+                startActivity(new Intent(MainActivity.this, com.doubleclick.dragdrop.MyCanvas.MainActivity.class));
+                Toast.makeText(MainActivity.this, "Done", Toast.LENGTH_SHORT).show();
+            }
+        });
+/*
         left.setOnClickListener(view -> {
-            canvas.check = true;
-            canvas.left = true;
-            canvas.right = false;
-            canvas.down = false;
-            canvas.up = false;
-            canvas.invalidate();
+            game_view.check = true;
+            game_view.left = true;
+            game_view.right = false;
+            game_view.down = false;
+            game_view.up = false;
+            game_view.invalidate();
         });
         up.setOnClickListener(view -> {
-            canvas.check = true;
-            canvas.left = false;
-            canvas.right = false;
-            canvas.down = false;
-            canvas.up = true;
-            canvas.invalidate();
+            game_view.check = true;
+            game_view.left = false;
+            game_view.right = false;
+            game_view.down = false;
+            game_view.up = true;
+            game_view.invalidate();
         });
         bottom.setOnClickListener(view -> {
-            canvas.check = true;
-            canvas.left = false;
-            canvas.right = false;
-            canvas.down = true;
-            canvas.up = false;
-            canvas.invalidate();
+            game_view.check = true;
+            game_view.left = false;
+            game_view.right = false;
+            game_view.down = true;
+            game_view.up = false;
+            game_view.invalidate();
         });
         right.setOnClickListener(view -> {
-            canvas.check = true;
-            canvas.left = false;
-            canvas.right = true;
-            canvas.down = false;
-            canvas.up = false;
-            canvas.invalidate();
-        });
+            game_view.check = true;
+            game_view.left = false;
+            game_view.right = true;
+            game_view.down = false;
+            game_view.up = false;
+            game_view.invalidate();
+        });*/
     }
 }
